@@ -11,6 +11,34 @@ class Fileupload
 		return false;
 	}
 	
+	public static function name()
+	{
+		if (qq_Ajax::exists())
+		{
+			return qq_Ajax::name();
+		}
+		else if (qq_Traditional::exists())
+		{
+			return qq_Traditional::name();
+		}
+		
+		return null;
+	}
+	
+	public static function size()
+	{
+		if (qq_Ajax::exists())
+		{
+			return qq_Ajax::size();
+		}
+		else if (qq_Traditional::exists())
+		{
+			return qq_Traditional::size();
+		}
+		
+		return 0;
+	}
+	
 	public static function save($path=null, $chmod=0644)
 	{
 		$exists = false;
