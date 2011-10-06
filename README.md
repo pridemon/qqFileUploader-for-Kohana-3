@@ -34,6 +34,8 @@ This is a simple example of how to accept a file upload. This method works for b
 		}
 	}
 
+Check [fileupload.php](https://github.com/egeriis/qqFileUploader-for-Kohana-3/blob/master/classes/fileupload.php) for documentation and feel free to [leave feedback](https://github.com/egeriis/qqFileUploader-for-Kohana-3/issues).
+
 ## License
 
 MIT License. See [LICENSE](https://github.com/egeriis/qqFileUploader-for-Kohana-3/blob/master/LICENSE) for details.
