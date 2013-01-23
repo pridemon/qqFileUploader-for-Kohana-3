@@ -71,7 +71,7 @@ class Fileupload
 	 * @param int $chmod (default: 0644)
 	 * @return boolean
 	 */
-	public static function save($path=null, $chmod=0644)
+	public static function save($temp_name, $path=null, $chmod=0644)
 	{
 		$exists = false;
 		if (qq_Ajax::exists())
@@ -87,8 +87,23 @@ class Fileupload
 		
 		if ($exists == false) return false;
 		
-		call_user_func(array($class, 'save'), $path);
+		call_user_func(array($class, 'save'), $temp_name, $path);
 		chmod($path, $chmod);
 		return true;
 	}
+    
+    public static function get_temp_name()
+    {
+        if (qq_Ajax::exists())
+        {
+            return qq_Ajax::get_temp_name();
+        }
+        else if (qq_Traditional::exists())
+        {
+            return qq_Traditional::get_temp_name();
+        }
+        
+        return '';
+    }
+    
 }

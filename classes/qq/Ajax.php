@@ -22,17 +22,17 @@ class qq_Ajax
 		return $_GET[Fileupload::$post_name];
 	}
 	
-	public static function save($path)
+	public static function save($temp, $path)
 	{
-	    $input = fopen("php://input", "r");
+/*	    $input = fopen("php://input", "r");
 	    $temp = tmpfile();
 	    $realSize = stream_copy_to_stream($input, $temp);
 	    fclose($input);
 	    
 	    if ($realSize != self::size()){            
 	        return false;
-	    }
-	    
+	    }      */
+            	    
 	    $target = fopen($path, "w");        
 	    fseek($temp, 0, SEEK_SET);
 	    stream_copy_to_stream($temp, $target);
@@ -40,4 +40,18 @@ class qq_Ajax
 	    
 	    return true;
 	}
+    
+    public static function get_temp_name() 
+    {
+        $input = fopen("php://input", "r");
+        $temp = tmpfile();
+        $realSize = stream_copy_to_stream($input, $temp);
+        fclose($input);
+        
+        if ($realSize != self::size()){            
+            return false;
+        }  
+
+        return $temp;        
+    }
 }
