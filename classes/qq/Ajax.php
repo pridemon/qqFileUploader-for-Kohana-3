@@ -36,7 +36,7 @@ class qq_Ajax
 	    $target = fopen($path, "w");        
 	    fseek($temp, 0, SEEK_SET);
 	    stream_copy_to_stream($temp, $target);
-	    fclose($target);
+        fclose($target);
 	    
 	    return true;
 	}
