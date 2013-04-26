@@ -7,8 +7,7 @@ class qq_Traditional
 		if (empty($_FILES[Fileupload::$post_name])) return false;
 		
 		$file = $_FILES[Fileupload::$post_name];
-		if (!Upload::not_empty($file) 
-			OR !Upload::valid($file)) return false;
+		if ((!Upload::not_empty($file)) || (!Upload::valid($file))) return false;
 			
 		return true;
 	}
